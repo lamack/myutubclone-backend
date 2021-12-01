@@ -26,6 +26,7 @@ jobs:
       env:
         ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
