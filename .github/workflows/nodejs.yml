@@ -24,8 +24,6 @@ jobs:
     - name: deploy
       uses: appleboy/ssh-action@master
       env:
-        ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
-        ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         host: ${{ secrets.HOST }}
@@ -33,7 +31,6 @@ jobs:
         # key: ${{ secrets.KEY }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        envs: ACCESSKEYID,ACCESSKEYSECRET
         script: |
           cd /root/myutubclone-backend
           git pull origin master
