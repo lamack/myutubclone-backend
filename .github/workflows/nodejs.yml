@@ -1,4 +1,5 @@
 # .github/workflows/nodejs.yml
+#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
 name: Node.js CI
 
 on:
@@ -25,6 +26,7 @@ jobs:
       env:
         ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -33,7 +35,7 @@ jobs:
         port: ${{ secrets.PORT }}
         envs: ACCESSKEYID,ACCESSKEYSECRET
         script: |
-          cd /root/youtubeclone-backend
+          cd /root/myutubclone-backend
           git pull origin master
           npm install --production
           npm run stop
