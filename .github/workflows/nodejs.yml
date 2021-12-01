@@ -4,6 +4,10 @@ name: Node.js CI
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 2 * * *'
 
 jobs:
   build:
@@ -13,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         node-version: [10]
-        os: [ubuntu-latest]
+        os: [redhat]
 
     steps:
     - name: deploy
@@ -29,11 +33,6 @@ jobs:
         port: ${{ secrets.PORT }}
         envs: ACCESSKEYID,ACCESSKEYSECRET
         script: |
-          export ACCESSKEYID=$ACCESSKEYID
-          export ACCESSKEYSECRET=$ACCESSKEYSECRET
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
           cd /root/youtubeclone-backend
           git pull origin master
           npm install --production
