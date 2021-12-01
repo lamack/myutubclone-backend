@@ -24,7 +24,7 @@ jobs:
     - name: deploy
       uses: appleboy/ssh-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.utubTOKEN }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
